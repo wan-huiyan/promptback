@@ -1,0 +1,12 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "wan-huiyan-interactive-feedback-report",
+  "description": "Single-file interactive HTML feedback reports — per-item decision chips + notes, copied back out as one structured prompt",
+  "owner": { "name": "Huiyan Wan" },
+  "plugins": [{
+    "name": "interactive-feedback-report",
+    "source": "./plugins/interactive-feedback-report",
+    "description": "Build self-contained HTML review pages that collect per-item feedback and copy all decisions back as a paste-ready prompt (no backend)",
+    "version": "1.0.0"
+  }]
+}

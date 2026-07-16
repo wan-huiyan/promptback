@@ -1,0 +1,9 @@
+{
+  "name": "interactive-feedback-report",
+  "description": "Build self-contained HTML review pages that collect per-item feedback and copy all decisions back as a paste-ready prompt (no backend)",
+  "version": "1.0.0",
+  "author": { "name": "Huiyan Wan" },
+  "repository": "https://github.com/wan-huiyan/interactive-feedback-report",
+  "license": "MIT",
+  "keywords": ["html-report", "feedback", "review", "decision-capture", "copy-as-prompt", "no-backend"]
+}

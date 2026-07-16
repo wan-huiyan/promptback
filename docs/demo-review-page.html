@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Q3 storefront backlog — review &amp; decide (demo)</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗳️</text></svg>">
+<style>
+:root{--base:#0e1116;--surface:#161b22;--surface2:#1d242e;--primary:#2dd4bf;--primary-dim:#134e48;--violet:#a78bfa;--text:#e8edf3;--mid:#aab4c0;--dim:#68737f;--border:rgba(255,255,255,.09);--good:#4ade80;--amber:#fbbf24}
+*{box-sizing:border-box} body{margin:0;background:var(--base);color:var(--text);font:15px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif;padding:0 0 110px}
+.wrap{max-width:920px;margin:0 auto;padding:34px 22px}
+h1{font-size:32px;letter-spacing:-.01em;margin:0 0 6px}
+h2{font-size:19px;margin:40px 0 4px;color:var(--primary)}
+.sub{color:var(--mid);max-width:800px} .sub b{color:var(--text)}
+.secnote{color:var(--dim);font-size:13px;margin:0 0 16px}
+.fb{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--border);border-radius:12px;padding:16px 18px;margin:14px 0}
+.fb.answered{border-left-color:var(--good);box-shadow:0 0 0 1px rgba(74,222,128,.14)}
+.fb-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.fb-q{font-weight:700;font-size:15.5px}
+.badge{font:11px ui-monospace,monospace;color:var(--violet);border:1px solid rgba(167,139,250,.4);border-radius:999px;padding:2px 9px;white-space:nowrap}
+.fb-ctx{color:var(--mid);font-size:13.5px} .fb-ctx p{margin:6px 0}
+.fb-chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.chip{background:var(--surface2);color:var(--mid);border:1px solid var(--border);border-radius:999px;padding:6px 14px;font:13px system-ui,sans-serif;cursor:pointer}
+.chip:hover{border-color:var(--primary);color:var(--text)}
+.chip[aria-pressed="true"]{background:var(--primary-dim);border-color:var(--primary);color:#fff}
+.fb-note{width:100%;min-height:40px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font:13px system-ui,sans-serif;resize:vertical}
+.dock{position:fixed;left:0;right:0;bottom:0;background:rgba(14,17,22,.96);border-top:1px solid var(--border);backdrop-filter:blur(6px);z-index:9}
+.dock-in{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:14px 22px}
+.dock-count{color:var(--mid);font-size:13.5px} .dock-count b{color:var(--text)}
+#copyBtn{margin-left:auto;background:var(--primary);color:#06302b;border:0;border-radius:999px;padding:11px 22px;font:700 14px system-ui,sans-serif;cursor:pointer}
+#copyBtn:hover{filter:brightness(1.1)}
+#toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%);background:var(--good);color:#052e13;font-weight:700;padding:9px 18px;border-radius:999px;opacity:0;transition:opacity .25s;pointer-events:none}
+</style></head><body><div class="wrap">
+<h1>Q3 storefront backlog — review &amp; decide</h1>
+<p class="sub">All open storefront issues were triaged against the current release. Mark a chip (click again to unselect), add notes where useful — your picks save locally and survive reload. When you're done, hit <b>Copy decisions as prompt</b> and paste the result back to your agent. <i>Demo page — all data is synthetic.</i></p>
+
+<h2>1 · Needs your decision</h2>
+<p class="secnote">Items only you can settle — each with its actual options, not a generic approve.</p>
+
+<div class="fb" data-id="d-legacy-checkout" data-q="#18 — Legacy checkout: delete or keep?" data-opts='[["delete","🗑 Delete / unlink legacy"],["keep-fix","📌 Keep + run the fix pass"],["ask","💬 Discuss"]]'>
+  <div class="fb-head"><span class="fb-q">#18 — Legacy checkout: delete or keep?</span><span class="badge">keystone — gates 3 others</span></div>
+  <div class="fb-ctx"><p>The v1 checkout is still linked under “Classic view” and renders a retired promo banner plus a shipping-cost table that no longer matches the rates service. Deleting it moots #21/#25/#29; keeping it means a one-day fix pass.</p></div>
+  <div class="fb-chips"></div>
+  <textarea class="fb-note" placeholder="Notes / conditions…"></textarea>
+</div>
+
+<div class="fb" data-id="d-ab-variant" data-q="#42 — Checkout A/B test: ship variant B?" data-opts='[["ship","🚀 Ship variant B"],["extend","⏳ Extend the test 2 weeks"],["kill","❌ Kill the experiment"],["ask","💬 Discuss"]]'>
+  <div class="fb-head"><span class="fb-q">#42 — Checkout A/B test: ship variant B?</span><span class="badge">experiment</span></div>
+  <div class="fb-ctx"><p>Variant B shows +1.8pp conversion (n=48,200 sessions over 3 weeks) but a small increase in support tickets about the new address form. Shipping now locks the form change in for the holiday freeze.</p></div>
+  <div class="fb-chips"></div>
+  <textarea class="fb-note" placeholder="Notes / conditions…"></textarea>
+</div>
+
+<div class="fb" data-id="d-vendor-search" data-q="#57 — Search vendor renewal: renew, renegotiate, or replace?" data-opts='[["renew","✅ Renew as-is"],["renegotiate","🤝 Renegotiate seats"],["replace","🔄 Trial the open-source stack"],["ask","💬 Discuss"]]'>
+  <div class="fb-head"><span class="fb-q">#57 — Search vendor renewal: renew, renegotiate, or replace?</span><span class="badge">contract · due in 3 weeks</span></div>
+  <div class="fb-ctx"><p>Current vendor is fine but we use 4 of 11 paid features. The open-source alternative handled our catalog in a spike test; migration is ~3 engineer-weeks.</p></div>
+  <div class="fb-chips"></div>
+  <textarea class="fb-note" placeholder="Notes / conditions…"></textarea>
+</div>
+
+<h2>2 · Close candidates</h2>
+<p class="secnote">Each carries evidence it's done or superseded. Nothing closes until you ratify it here.</p>
+
+<div class="fb" data-id="i-settings-redesign" data-q="#23 — Redesign the settings page" data-opts='[["close","✅ Close"],["keep","🚫 Keep open"],["ask","💬 Discuss"]]'>
+  <div class="fb-head"><span class="fb-q">#23 — Redesign the settings page</span><span class="badge">superseded</span></div>
+  <div class="fb-ctx"><p>Filed against the old two-column layout; the account-hub rework (release 24.6) replaced the page entirely. Nothing in the issue survives on the new surface.</p></div>
+  <div class="fb-chips"></div>
+  <textarea class="fb-note" placeholder="Notes…"></textarea>
+</div>
+
+<div class="fb" data-id="i-cart-race" data-q="#36 — Cart badge count races on slow connections" data-opts='[["close","✅ Close"],["keep","🚫 Keep open"],["ask","💬 Discuss"]]'>
+  <div class="fb-head"><span class="fb-q">#36 — Cart badge count races on slow connections</span><span class="badge">already fixed</span></div>
+  <div class="fb-ctx"><p>Fixed by the optimistic-update revert in release 24.4 (the badge now reads from the server snapshot); reproduced-then-verified gone on staging with 3G throttling.</p></div>
+  <div class="fb-chips"></div>
+  <textarea class="fb-note" placeholder="Notes…"></textarea>
+</div>
+
+<h2>3 · Build queue</h2>
+<p class="secnote">Verified still-live and unblocked. Default order shown — reprioritize or drop.</p>
+
+<div class="fb" data-id="b-export-csv" data-q="#31 — Order-history CSV export endpoint" data-opts='[["go","🚀 Go"],["later","⏸ Later"],["drop","❌ Drop"],["ask","💬 Discuss"]]'>
+  <div class="fb-head"><span class="fb-q">#31 — Order-history CSV export endpoint</span><span class="badge">small · unblocked</span></div>
+  <div class="fb-ctx"><p>Top support ask last quarter (61 tickets). Half-day build against the existing orders view; needs a row cap decision (10k?) noted below if you have one.</p></div>
+  <div class="fb-chips"></div>
+  <textarea class="fb-note" placeholder="Notes…"></textarea>
+</div>
+
+<div class="fb" data-id="b-wishlist-share" data-q="#44 — Sharable wishlist links" data-opts='[["go","🚀 Go"],["later","⏸ Later"],["drop","❌ Drop"],["ask","💬 Discuss"]]'>
+  <div class="fb-head"><span class="fb-q">#44 — Sharable wishlist links</span><span class="badge">medium</span></div>
+  <div class="fb-ctx"><p>Marketing wants it for the gifting season. Requires a public-token model for wishlists (privacy review needed) plus one new page.</p></div>
+  <div class="fb-chips"></div>
+  <textarea class="fb-note" placeholder="Notes…"></textarea>
+</div>
+
+</div>
+<div class="dock"><div class="dock-in"><span class="dock-count"><b id="fbCount">0</b> items marked</span><button id="copyBtn" type="button">📋 Copy decisions as prompt</button></div></div>
+<div id="toast">Copied ✓</div>
+<script>
+const KEY='demo_backlog_review_v1';
+const DEFAULT_CHIPS=[['approve','✅ Approve'],['revise','✏️ Revise'],['hold','⏸ Hold'],['drop','❌ Drop'],['ask','💬 Discuss']];
+let store={}; try{store=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+const items=[...document.querySelectorAll('.fb')];
+items.forEach(fb=>{
+  const id=fb.dataset.id, wrap=fb.querySelector('.fb-chips'), note=fb.querySelector('.fb-note');
+  const opts=fb.dataset.opts?JSON.parse(fb.dataset.opts):DEFAULT_CHIPS, rec=store[id]||{};
+  opts.forEach(([v,label])=>{
+    const b=document.createElement('button'); b.className='chip'; b.type='button'; b.dataset.v=v; b.textContent=label;
+    b.setAttribute('aria-pressed', rec.decision===v?'true':'false');
+    b.onclick=()=>{ const cur=(store[id]||{}).decision, nv=cur===v?'':v;
+      wrap.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed','false'));
+      if(nv) b.setAttribute('aria-pressed','true'); save(id,{decision:nv}); paint(fb,id); };
+    wrap.appendChild(b);
+  });
+  if(rec.note) note.value=rec.note;
+  note.oninput=()=>{ save(id,{note:note.value}); paint(fb,id); };
+  paint(fb,id);
+});
+function save(id,patch){ store[id]={...store[id],...patch};
+  if(!store[id].decision && !(store[id].note||'').trim()) delete store[id];
+  try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){} count(); }
+function paint(fb,id){ const r=store[id]||{}; fb.classList.toggle('answered', !!(r.decision||(r.note||'').trim())); }
+function count(){ document.getElementById('fbCount').textContent=Object.keys(store).length; }
+count();
+function buildPrompt(){
+  const L=['Feedback on the Q3 storefront backlog triage. Apply these decisions:',''];
+  items.forEach(fb=>{ const r=store[fb.dataset.id]; if(!r) return;
+    const dec=r.decision?('['+r.decision.toUpperCase()+']'):'[note]', n=(r.note||'').trim();
+    L.push('- '+dec+' '+fb.dataset.q+(n?(' — '+n):'')); });
+  if(!Object.keys(store).length) L.push('(no items marked yet)');
+  L.push('','Read docs/backlog-triage.md for full context before acting.');
+  return L.join('\n');
+}
+document.getElementById('copyBtn').onclick=()=>{ const t=buildPrompt();
+  (navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(t):Promise.reject()).then(ok,fall);
+  function ok(){ const x=document.getElementById('toast'); x.style.opacity=1; setTimeout(()=>x.style.opacity=0,1600); }
+  function fall(){ const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select();
+    try{document.execCommand('copy'); ok()}catch(e){prompt('Copy:',t)} ta.remove(); } };
+</script></body></html>
