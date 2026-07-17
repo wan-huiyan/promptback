@@ -1,6 +1,6 @@
 {
   "name": "interactive-feedback-report",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Single-file interactive HTML feedback reports for Claude Code — per-item decision chips + copy-as-prompt",
   "type": "module",
   "scripts": { "test": "node --test tests/*.test.mjs" },

@@ -11,7 +11,7 @@ description: |
   widget/state/copy-dock pattern, decision-specific option chips, persistence, clipboard
   pitfalls (iframe permissions, rejected promises), and browser-based verification.
 author: Huiyan Wan
-version: 1.0.0
+version: 1.1.0
 date: 2026-07-16
 ---
 
@@ -186,3 +186,16 @@ Read docs/reviews/<triage-report>.md for full context before acting.
   without the source docs.
 - Inject the chips from JS (don't hand-write them per widget) so every item stays
   consistent and adding a decision option is a one-line change.
+- **Define tick SEMANTICS in the copied prompt when a chip means "adopt the recommendation"
+  (v1.1.0 — first full owner round-trip confirmed in production).** A real review round
+  validated the whole loop end-to-end: the owner ticked every widget, hit copy, and pasted
+  into a fresh agent session — the paste cold-started the apply round with zero ambiguity,
+  including two REVISE+note overrides that cleanly reversed the report's own recommendations.
+  The load-bearing detail: on widgets whose question is recommendation-shaped ("we recommend
+  X; the alternative is Y"), a bare `[APPROVE]` is ambiguous to the receiving session —
+  approve the change, or approve the status quo the report defended? Fix it twice: (1) put a
+  one-line `.meaning` legend on the widget itself ("✅ Approve = do X · ✏️ Revise + note = Y
+  instead"), and (2) append a **"Meaning of ticks" section to `buildPrompt()`** restating the
+  same mapping for exactly those widgets, so the copied prompt carries its own decoding key.
+  Free-text-only answers (`[note]`/discussion chips) ride the same prompt fine — answer them
+  in the reply and record dispositions wherever the decisions are tracked.

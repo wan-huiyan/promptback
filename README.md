@@ -132,6 +132,7 @@ None at runtime — vanilla HTML/CSS/JS in one file. For the verification step, 
 
 ## Version History
 
+- **1.1.0** (2026-07-17) — First full owner round-trip confirmed in production; new guidance: define tick SEMANTICS ("Meaning of ticks" legend in `buildPrompt()` + a `.meaning` line on the widget) whenever a chip means "adopt the recommendation" — a bare [APPROVE] on a recommendation-shaped question is ambiguous to the receiving session.
 - **1.0.0** (2026-07-16) — Initial public release: widget/state/dock pattern, question-specific decision chips, clipboard fallback chain, addendum mode, browser verification recipe, synthetic demo page + screenshots.
 
 ## License
