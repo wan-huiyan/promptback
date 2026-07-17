@@ -13,7 +13,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
-const PLUGIN = "interactive-feedback-report";
+const PLUGIN = "promptback";
 
 const marketplaceJsonPath = resolve(ROOT, ".claude-plugin/marketplace.json");
 const pluginJsonPath = resolve(ROOT, `plugins/${PLUGIN}/.claude-plugin/plugin.json`);

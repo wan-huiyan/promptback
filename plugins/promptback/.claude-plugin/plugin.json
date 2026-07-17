@@ -1,9 +1,9 @@
 {
-  "name": "interactive-feedback-report",
+  "name": "promptback",
   "description": "Build self-contained HTML review pages that collect per-item feedback and copy all decisions back as a paste-ready prompt (no backend)",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "author": { "name": "Huiyan Wan" },
-  "repository": "https://github.com/wan-huiyan/interactive-feedback-report",
+  "repository": "https://github.com/wan-huiyan/promptback",
   "license": "MIT",
   "keywords": ["html-report", "feedback", "review", "decision-capture", "copy-as-prompt", "no-backend"]
 }

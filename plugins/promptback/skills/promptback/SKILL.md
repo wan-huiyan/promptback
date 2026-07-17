@@ -1,5 +1,5 @@
 ---
-name: interactive-feedback-report
+name: promptback
 description: |
   Build a single-file interactive HTML report that collects per-item feedback (approve /
   revise / hold / drop chips + free-text notes) and copies all decisions back out as a
@@ -11,8 +11,8 @@ description: |
   widget/state/copy-dock pattern, decision-specific option chips, persistence, clipboard
   pitfalls (iframe permissions, rejected promises), and browser-based verification.
 author: Huiyan Wan
-version: 1.1.0
-date: 2026-07-16
+version: 2.0.0
+date: 2026-07-17
 ---
 
 # Interactive feedback report → copy-as-prompt

@@ -1,11 +1,13 @@
-# interactive-feedback-report
+# promptback
 
-A Claude Code skill that turns findings, plans, or backlog triages into a **single-file interactive HTML review page** — the reviewer clicks per-item decision chips, types notes in place, and copies everything back out as one structured prompt. No backend: it opens from `file://` or any static host, works offline, and survives reload via localStorage.
+**Feedback that comes back as a prompt.** A Claude Code skill that turns findings, plans, or backlog triages into a **single-file interactive HTML review page** — the reviewer clicks per-item decision chips, types notes in place, and copies everything back out as one structured prompt. No backend: it opens from `file://` or any static host, works offline, and survives reload via localStorage.
 
-[![GitHub release](https://img.shields.io/github/v/release/wan-huiyan/interactive-feedback-report)](https://github.com/wan-huiyan/interactive-feedback-report/releases)
-[![license](https://img.shields.io/github/license/wan-huiyan/interactive-feedback-report)](LICENSE)
-[![last commit](https://img.shields.io/github/last-commit/wan-huiyan/interactive-feedback-report)](https://github.com/wan-huiyan/interactive-feedback-report/commits)
-[![Tests](https://github.com/wan-huiyan/interactive-feedback-report/actions/workflows/test.yml/badge.svg)](https://github.com/wan-huiyan/interactive-feedback-report/actions/workflows/test.yml)
+*Formerly `interactive-feedback-report` — old GitHub links redirect here.*
+
+[![GitHub release](https://img.shields.io/github/v/release/wan-huiyan/promptback)](https://github.com/wan-huiyan/promptback/releases)
+[![license](https://img.shields.io/github/license/wan-huiyan/promptback)](LICENSE)
+[![last commit](https://img.shields.io/github/last-commit/wan-huiyan/promptback)](https://github.com/wan-huiyan/promptback/commits)
+[![Tests](https://github.com/wan-huiyan/promptback/actions/workflows/test.yml/badge.svg)](https://github.com/wan-huiyan/promptback/actions/workflows/test.yml)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-skill-orange)](https://claude.com/claude-code)
 
 ![Demo — decision items with question-specific chips](docs/demo-decisions.png)
@@ -18,7 +20,7 @@ A Claude Code skill that turns findings, plans, or backlog triages into a **sing
 You: I triaged our 70 open issues — here's the report. Turn it into an HTML
      I can give feedback on, especially the ones that need my decision.
 
-Claude: [invokes interactive-feedback-report]
+Claude: [invokes promptback]
         → builds review.html: decision items first (custom option chips),
           then ratifiable close-candidates, then the build queues
         → verifies chips/persistence/copy in a real browser
@@ -47,17 +49,17 @@ Read docs/backlog-triage.md for full context before acting.
 
 ```bash
 # Plugin install (recommended)
-/plugin marketplace add wan-huiyan/interactive-feedback-report
-/plugin install interactive-feedback-report@wan-huiyan-interactive-feedback-report
+/plugin marketplace add wan-huiyan/promptback
+/plugin install promptback@wan-huiyan-promptback
 
 # Git clone (always works)
-git clone https://github.com/wan-huiyan/interactive-feedback-report.git ~/.claude/skills/interactive-feedback-report
+git clone https://github.com/wan-huiyan/promptback.git ~/.claude/skills/promptback
 ```
 
 **Cursor** (2.4+):
 
 ```bash
-npx skills add wan-huiyan/interactive-feedback-report --global
+npx skills add wan-huiyan/promptback --global
 # or clone into ~/.cursor/skills/
 ```
 
@@ -74,7 +76,7 @@ npx skills add wan-huiyan/interactive-feedback-report --global
 
 ## Typical Ad-Hoc vs With This Skill
 
-| | Flat report + chat feedback | interactive-feedback-report |
+| | Flat report + chat feedback | promptback |
 |---|---|---|
 | Reviewer effort | Re-type each decision into chat, from memory | Click a chip, optionally add a note |
 | Decision fidelity | "Approve the third one… no, the other third one" | Stable item ids; options are the item's real choices |
